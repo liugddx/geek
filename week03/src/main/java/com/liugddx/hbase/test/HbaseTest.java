@@ -58,15 +58,15 @@ public class HbaseTest {
 		//连接
 		Connection connection = this.connection();
 		//liugdx:student
-		TableName tableName = TableName.valueOf(NAMESPACE+":"+TABLE_NAME);
-
+//		TableName tableName = TableName.valueOf(NAMESPACE+":"+TABLE_NAME);
+		TableName tableName = TableName.valueOf(TABLE_NAME);
 		this.createTable(connection,tableName,CF_INFO,CF_SCORE);
 
 		List<Student> studentIds = new ArrayList<>();
 		studentIds.add(new Student("Tom","20210000000001","1","75","82"));
-		studentIds.add(new Student("Jerry","20210000000001","1","85","67"));
-		studentIds.add(new Student("Jack","20210000000001","1","80","80"));
-		studentIds.add(new Student("Rose","20210000000001","1","60","61"));
+		studentIds.add(new Student("Jerry","20210000000002","1","85","67"));
+		studentIds.add(new Student("Jack","20210000000003","2","80","80"));
+		studentIds.add(new Student("Rose","20210000000004","2","60","61"));
 		studentIds.add(new Student("刘广东","G20210616020055","1","90","90"));
 
 
