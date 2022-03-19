@@ -67,7 +67,7 @@ public class HbaseTest {
 		studentIds.add(new Student("Jerry","20210000000002","1","85","67"));
 		studentIds.add(new Student("Jack","20210000000003","2","80","80"));
 		studentIds.add(new Student("Rose","20210000000004","2","60","61"));
-		studentIds.add(new Student("刘广东","G20210616020055","1","90","90"));
+		studentIds.add(new Student("liugddx","G20210616020055","1","90","90"));
 
 
 		for (Student student : studentIds){
@@ -84,7 +84,7 @@ public class HbaseTest {
 			log.info("student info is {}",this.getRow(connection, tableName, student.getName()));
 		}
 
-		List<Map<String, String>> dataList = this.scan(connection, tableName, "Tom", "刘广东");
+		List<Map<String, String>> dataList = this.scan(connection, tableName, null, null);
 		log.info("扫描表结果-:\n{}", JSON.toJSONString(dataList));
 
 
