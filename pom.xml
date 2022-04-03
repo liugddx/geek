@@ -11,6 +11,7 @@
     <modules>
         <module>week03</module>
         <module>week02</module>
+        <module>week05</module>
     </modules>
 
     <properties>
@@ -36,6 +37,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
