@@ -91,7 +91,7 @@ public class HiveController {
 	}
 
 		@GetMapping("/topic2")
-		public List<Map> topic2(@RequestParam("numOfRate") Integer numOfRate, @RequestParam("numOfMovie") Integer numOfMovie) {
+		public List<Map> topic2(@RequestParam("numOfRate") int numOfRate, @RequestParam("numOfMovie") int numOfMovie) {
 		List<Map> list = new ArrayList<>();
 		PreparedStatement statement = null;
 		try {
@@ -116,7 +116,7 @@ public class HiveController {
 	}
 
 	@GetMapping("/topic3")
-	public List<Map> topic3(@RequestParam("sex") String sex, @RequestParam("numOfMovie") Integer numOfMovie) {
+	public List<Map> topic3(@RequestParam("sex") String sex, @RequestParam("numOfMovie") int numOfMovie) {
 		List<Map> list = new ArrayList<>();
 		PreparedStatement statement = null;
 		try {
