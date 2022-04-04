@@ -74,7 +74,7 @@ public class HiveController {
 		List<Map> list = new ArrayList<>();
 		PreparedStatement statement = null;
 		try {
-			String sql = String.format("select a.age , AVG(b.rate) as avgRate from t_user a join t_rating b on  a.userid=b.userid  where b.movieid=%s group by age;",movieId);
+			String sql = String.format("select a.age , AVG(b.rate) as avgRate from t_user a join t_rating b on  a.userid=b.userid  where b.movieid=%s group by age",movieId);
 			statement = druidDataSource.getConnection().prepareStatement(sql);
 			logger.info("Running: " + sql);
 			ResultSet res = statement.executeQuery(sql);
@@ -90,12 +90,15 @@ public class HiveController {
 		return list;
 	}
 
-		@GetMapping("/topic2/")
+		@GetMapping("/topic2")
 		public List<Map> topic2(@RequestParam("numOfRate") Integer numOfRate, @RequestParam("numOfMovie") Integer numOfMovie) {
 		List<Map> list = new ArrayList<>();
 		PreparedStatement statement = null;
 		try {
-			String sql = String.format("select m.moviename as moviename,avg(r.rate) as avgRate,count(*) total  from t_rating r join t_user u on u.userid=r.userid join t_movie m on r.movieid=m.movieid where u.sex='M' group by u.sex,m.moviename having total>%d order by avgRate desc limit %d",numOfRate,numOfMovie);
+			String sql = String.format("select m.moviename as moviename,avg(r.rate) as avgRate" +
+					",count(*) total  from t_rating r join t_user u on u.userid=r.userid join t_movie m " +
+					"on r.movieid=m.movieid where u.sex='M' group by u.sex,m.moviename having total>%d " +
+					"order by avgRate desc limit %d",numOfRate,numOfMovie);
 			statement = druidDataSource.getConnection().prepareStatement(sql);
 			logger.info("Running: " + sql);
 			ResultSet res = statement.executeQuery(sql);
@@ -112,7 +115,7 @@ public class HiveController {
 		return list;
 	}
 
-	@GetMapping("/topic3/")
+	@GetMapping("/topic3")
 	public List<Map> topic3(@RequestParam("sex") String sex, @RequestParam("numOfMovie") Integer numOfMovie) {
 		List<Map> list = new ArrayList<>();
 		PreparedStatement statement = null;
@@ -123,7 +126,7 @@ public class HiveController {
 					"as num from t_user u join t_rating r on u.userid = r.userid " +
 					"where u.sex='%s' group by u.userid order by num desc limit 1) u " +
 					"on r.userid = u.userid order by r.rate desc,movieid limit %d) mm " +
-					"on r.movieid = mm.movieid group by m.moviename;",sex,numOfMovie);
+					"on r.movieid = mm.movieid group by m.moviename",sex,numOfMovie);
 			statement = druidDataSource.getConnection().prepareStatement(sql);
 			logger.info("Running: " + sql);
 			ResultSet res = statement.executeQuery(sql);
