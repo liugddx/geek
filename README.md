@@ -12,3 +12,13 @@
 ```shell
 curl http://localhost:9091/hive/topic3?sex=F\&numOfMovie=10
 ```
+
+# week06
+
+## 命令
+```shell
+spark-submit --class invertedindex.InvertedIndex --master yarn --deploy-mode cluster week06-1.0-SNAPSHOT.jar /home/student1/liuguangdong/spark /home/student1/liuguangdong/result
+```
+##结果
+![题目一结果](images/week06-01.jpg)
+

@@ -13,6 +13,8 @@
         <module>week02</module>
         <module>week05</module>
         <module>flink</module>
+        <module>week06</module>
+        <module>spark</module>
     </modules>
 
     <properties>
