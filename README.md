@@ -22,3 +22,12 @@ spark-submit --class invertedindex.InvertedIndex --master yarn --deploy-mode clu
 ##结果
 ![题目一结果](images/week06-01.jpg)
 
+## 题目二
+
+```shell
+spark-submit --class distcp.SparkDistCP --master yarn --deploy-mode cluster week06-1.0-SNAPSHOT.jar /home/student1/liuguangdong/spark/source /home/student1/liuguangdong/spark/sink 10 false
+```
+
+##结果
+
+![题目一结果](images/week06-2.jpg)
