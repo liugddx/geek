@@ -15,6 +15,7 @@
         <module>flink</module>
         <module>week06</module>
         <module>spark</module>
+        <module>week09</module>
     </modules>
 
     <properties>
