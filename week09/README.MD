@@ -114,5 +114,3 @@ from (
 where a.name="saya");
 ```
 
-# 第三题
-
