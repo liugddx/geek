@@ -16,6 +16,7 @@
         <module>week06</module>
         <module>spark</module>
         <module>week09</module>
+        <module>week10</module>
     </modules>
 
     <properties>
